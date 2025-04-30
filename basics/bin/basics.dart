@@ -3,3 +3,4 @@ void main(List<String> arguments) {
 }
 
 //fswatch -o bin/ | xargs -n1 -I{} sh -c 'clear; dart bin/basics.dart'
+//dart create -t console basics
