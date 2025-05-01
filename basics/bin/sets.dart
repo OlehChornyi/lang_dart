@@ -4,7 +4,7 @@ void main(List<String> args) {
   Set<String> strings = {'Foo', 'Bar', 'Baz', 'Qux'};
   Set<int> integers = {1, 2, 3, 4, 5, 6, 7};
 
-  //CONSTRUCTORS
+  //CONSTRUCTORS (5)
   print(Set());
   print(Set.from([1, 2, 3, 4]));
   print(LinkedHashSet.identity());
@@ -12,7 +12,7 @@ void main(List<String> args) {
   print(Set.unmodifiable([1, 2, 3, 4, 5, 1, 2]));
   print('-----------');
 
-  //PROPERTIES
+  //PROPERTIES (12)
   print(strings.first);
   print(strings.firstOrNull);
   print(strings.hashCode);
@@ -30,7 +30,7 @@ void main(List<String> args) {
   print(strings.singleOrNull);
   print('-------------------');
 
-  //METHODS
+  //METHODS (27)
   print(strings.add('A'));
   print(strings);
   strings.addAll(['B', 'C']);

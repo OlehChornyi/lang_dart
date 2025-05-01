@@ -1,7 +1,7 @@
 void main(List<String> args) {
   String string = 'Dart';
   print(string);
-  //PROPERTIES
+  //PROPERTIES (7)
   print(string.hashCode);
   print(string.codeUnits);
   print(string.isEmpty);
@@ -12,7 +12,7 @@ void main(List<String> args) {
   // print(string.toJS);
   print('----------------');
 
-  //METHODS
+  //METHODS (19)
   // print(string.allMatches('a'));
   print(string.codeUnitAt(0));
   print(string.compareTo('Dart'));
@@ -36,7 +36,7 @@ void main(List<String> args) {
   print(string.trim());
   print('----------------');
 
-  //OPERATORS
+  //OPERATORS (4)
   print(string * 2);
   print(string + ' is awesome!');
   print(string == string);
