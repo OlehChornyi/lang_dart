@@ -1,13 +1,26 @@
+import 'dart:math';
+
 void main(List<String> args) {
-  print(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); 
+  print(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
   print(findCommon([1, 2, 3], [2, 3, 4]));
   print(charFrequency("hello"));
   var car = Car("Toyota", 2020);
   car.showDetails();
   print(divide(10, 0));
+  print(sumEven([1, 2, 3, 4, 5]));
+  print(findAnagrams("listen", ["enlist", "google", "inlets", "banana"]));
+  print(
+    flatten([
+      [1, 2],
+      [3, 4],
+      [5],
+    ]),
+  );
+  print(capitalizeWords("hello world from dart"));
+  print(generatePassword(12)); 
 }
 
-//Focused on intermediate topics including collections, 
+//Focused on intermediate topics including collections,
 //OOP, error handling, and functional programming concepts.
 
 //11. Remove Duplicates from a List
@@ -51,4 +64,47 @@ double? divide(int a, int b) {
     print('Error: $e');
     return double.nan;
   }
+}
+
+//16. Return the sum of all even numbers in a list.
+int sumEven(List<int> numbers) {
+  return numbers.where((n) => n.isEven).fold(0, (a, b) => a + b);
+}
+
+//17. Find All Anagrams of a Word in a List
+bool isAnagram(String a, String b) {
+  var sa = a.split('')..sort();
+  var sb = b.split('')..sort();
+  return sa.join() == sb.join();
+}
+
+List<String> findAnagrams(String word, List<String> list) {
+  return list.where((w) => isAnagram(word, w)).toList();
+}
+
+//18. Flatten a Nested List
+//Write a function to flatten a nested list (one level deep).
+List<T> flatten<T>(List<List<T>> nested) {
+  return nested.expand((e) => e).toList();
+}
+
+//19. Capitalize Each Word in a Sentence
+String capitalizeWords(String sentence) {
+  return sentence
+      .split(' ')
+      .map(
+        (word) =>
+            word.isNotEmpty
+                ? '${word[0].toUpperCase()}${word.substring(1)}'
+                : '',
+      )
+      .join(' ');
+}
+
+//20. Generate a Random Password
+String generatePassword(int length) {
+  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  final rand = Random();
+  return List.generate(length, (index) => chars[rand.nextInt(chars.length)])
+      .join();
 }
