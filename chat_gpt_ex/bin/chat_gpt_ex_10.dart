@@ -4,6 +4,11 @@ print(isPrime(2));
 reverseString('hello');
 print(factorial(3));
 print(sumOfDigits(1234));
+print(isPalindrome("racecar"));
+print(countVowels("Dart Programming")); 
+print(findLargest([3, 5, 7, 2, 9]));
+print(squareList([1, 2, 3, 4]));
+print(wordCount("This is a test. This test is easy."));
 }
 
 //1. Print Fibonacci Series (First N Numbers)
@@ -57,3 +62,57 @@ int sumOfDigits(int number) {
   }
   return sum;
 }
+
+//6. Check if a string is a palindrome.
+bool isPalindrome(String str) {
+  String reversed = str.split('').reversed.join('');
+  return str == reversed;
+}
+
+//7. Count Vowels in a String
+int countVowels(String input) {
+  final vowels = ['a', 'e', 'i', 'o', 'u'];
+  int count = 0;
+  for (var ch in input.toLowerCase().split('')) {
+    if (vowels.contains(ch)) count++;
+  }
+  return count;
+}
+
+//8. Find the Largest Element in a List
+int findLargest(List<int> numbers) {
+  int max = numbers[0];
+  for (var num in numbers) {
+    if (num > max) max = num;
+  }
+  return max;
+}
+
+//9. Map List of Integers to Their Squares
+List<int> squareList(List<int> numbers) {
+  return numbers.map((n) => n * n).toList();
+}
+
+//10. Count Word Frequencies in a Sentence
+Map<String, int> wordCount(String sentence) {
+  String cleaned = sentence.replaceAll(RegExp(r'[^\w\s]'), '').toLowerCase();
+  print(cleaned);
+  var words = cleaned.split(RegExp(r'\s+'));
+  var count = <String, int>{};
+  for (var word in words) {
+    count[word] = (count[word] ?? 0) + 1;
+  }
+  return count;
+}
+//RegExp(r'[^\w\s]') explained:
+//This regular expression matches all characters that are NOT word characters or whitespace. Here's how:
+//1. [...] – Character Class
+//This defines a set of characters to match. Anything inside the square brackets is part of the match criteria.
+//2. ^ (caret) – Negation (when inside brackets)
+//When placed at the beginning of a character class, it negates the set. That means: “match anything not in this set.”
+//3. \w – Word character
+//This matches any "word" character: [a-zA-Z0-9_].
+//Includes all letters (uppercase and lowercase), digits, and underscore.
+//4. \s – Whitespace character
+//This matches any whitespace: space, tab, newline, etc.
+
