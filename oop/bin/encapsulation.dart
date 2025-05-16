@@ -11,6 +11,13 @@ void main(List<String> args) {
   var t = Temperature();
   t.celsius = -500;
   print(t.celsius);
+  //--------------
+  var config = AppConfig();
+  print(config.appName);
+  //---------------
+  var p1 = Product("Book", 12.99);
+  print(p1.name);
+  print(p1.price);
 }
 
 //Here are 10 Dart exercises focused on the Encapsulation principle 
@@ -56,4 +63,20 @@ class Temperature {
   }
 }
 
-//+1
+//4. Read-Only Property
+class AppConfig {
+  final String _appName = "MyApp";
+
+  String get appName => _appName;
+}
+
+//5. Encapsulation with Constructor Injection
+class Product {
+  final String _name;
+  final double _price;
+
+  Product(this._name, this._price);
+
+  String get name => _name;
+  double get price => _price;
+}
