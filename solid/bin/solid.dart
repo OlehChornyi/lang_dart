@@ -4,7 +4,7 @@ void main(List<String> arguments) {
   //SOLID
   //Single responsibility principle
   //Open-closed principle
-  //Liskobsky substitution principle
+  //Liskov substitution principle
   //Interface segregation principle
   //Dependency inversion principle
 }
